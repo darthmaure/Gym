@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:charts="clr-namespace:Microcharts;assembly=Microcharts"
+             xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             x:Class="Gym.Views.CounterPage" BackgroundColor="White"
+             Title="{Binding Title}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="+1" Command="{Binding IncrementCommand}" Margin="1"
+                    VerticalOptions="Start" 
+                    HorizontalOptions="Fill"/>
+            <Label Text="{Binding TodayCounter}"
+                   TextColor="{Binding TodayCounter, Converter={StaticResource CounterLimitConverter}, ConverterParameter={x:Reference Name=l1}}" 
+                   HorizontalOptions="CenterAndExpand" 
+                   VerticalOptions="Start"
+                   FontSize="32" Margin="1,3"/>
+            <Label IsVisible="False" Text="{Binding DailyLimit}" x:Name="l1" FontSize="3" Margin="0"/>
+
+            <Label Text="Last 7 days chart" VerticalOptions="Start" Margin="1,4,1,1"/>
+            <microcharts:ChartView Margin="1" Chart="{Binding Path=Chart}" 
+                                   BackgroundColor="White"
+                                   VerticalOptions="FillAndExpand" 
+                                   HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

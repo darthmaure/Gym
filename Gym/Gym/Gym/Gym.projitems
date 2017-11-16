@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>f22bc714-5402-4761-b0c2-b1f88ab63b4b</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Gym</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Bootstrap.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\CounterLimitConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\DailyEntry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\SettingsEntry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\ChartService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\ColorService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\DebugDataService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\DebugSettingsService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\ExportService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\IChartService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\IColorService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\IDataService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\IExportService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\IMailingService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\ISettingsService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\MailingService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CounterViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\SettingsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\CounterPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\SettingsPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\CounterPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\SettingsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>
