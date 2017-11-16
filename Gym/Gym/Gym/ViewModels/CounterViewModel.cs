@@ -2,18 +2,20 @@
 using System.Windows.Input;
 using Gym.Services;
 using Microcharts;
-using TinyIoC;
 using Xamarin.Forms;
 
 namespace Gym.ViewModels
 {
     public class CounterViewModel : BaseViewModel
     {
-        public CounterViewModel()
+        public CounterViewModel(
+            IDataService dataService,
+            IChartService chartService,
+            ISettingsService settingsService)
         {
-            _dataService = TinyIoCContainer.Current.Resolve<IDataService>();
-            _chartService = TinyIoCContainer.Current.Resolve<IChartService>();
-            _settingsService = TinyIoCContainer.Current.Resolve<ISettingsService>();
+            _dataService = dataService;
+            _chartService = chartService;
+            _settingsService = settingsService;
 
             IncrementCommand = new Command(async () => await IncrementAsync());
 
@@ -23,9 +25,9 @@ namespace Gym.ViewModels
         private int dailyLimit;
         private int todayCounter;
         private Chart chart;
-        private IDataService _dataService;
-        private IChartService _chartService;
-        private ISettingsService _settingsService;
+        private readonly IDataService _dataService;
+        private readonly IChartService _chartService;
+        private readonly ISettingsService _settingsService;
 
         public ICommand IncrementCommand { get; }
 

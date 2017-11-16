@@ -1,4 +1,4 @@
-﻿#define TEST
+﻿//#define TEST
 
 using Gym.Services;
 using Gym.ViewModels;
@@ -16,13 +16,13 @@ namespace Gym
             container.Register<IColorService, ColorService>();
             container.Register<IExportService, ExportService>();
             container.Register<IMailingService, MailingService>();
+            container.Register<ISettingsService, SettingsService>();
 
 #if TEST
             container.Register<IDataService, DebugDataService>();
-            container.Register<ISettingsService, DebugSettingsService>();
+            //container.Register<ISettingsService, DebugSettingsService>();
 #else
             container.Register<IDataService, DataService>();
-            container.Register<ISettingsService, SettingsService>();
 #endif
 
             container.Register<CounterViewModel>();

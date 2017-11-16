@@ -4,16 +4,25 @@
              x:Class="Gym.Views.SettingsPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-
-            <Entry Keyboard="Numeric" Text="{Binding DailyLimit}"
+            <Label Text="Daily limit"
+                VerticalOptions="Start" 
+                HorizontalOptions="FillAndExpand" />
+            <Entry Keyboard="Numeric" Text="{Binding DailyLimit, Mode=TwoWay}"
                    VerticalOptions="Start"
                    HorizontalOptions="FillAndExpand" Margin="1"/>
-            <Button Text="Save Settings" Command="{Binding UpdateSettingsCommand}" Margin="1"/>
 
-            <Button Text="Export Data" Command="{Binding SendHistoryCommand}" Margin="1,6,1,1"/>
+            <Label Text="Email"
+                VerticalOptions="Start" 
+                HorizontalOptions="FillAndExpand" />
+            <Entry Keyboard="Email" Text="{Binding Email, Mode=TwoWay}"
+                   VerticalOptions="Start"
+                   HorizontalOptions="FillAndExpand" Margin="1"/>
+            
+            <Button Text="Save Settings" Command="{Binding UpdateSettingsCommand}" Margin="1"
+                    VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>
+
+            <Button Text="Export Data" Command="{Binding SendHistoryCommand}" Margin="1,6,1,1"
+                    VerticalOptions="End" HorizontalOptions="FillAndExpand"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

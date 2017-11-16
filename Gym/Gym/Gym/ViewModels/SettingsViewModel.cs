@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Windows.Input;
 using Gym.Services;
-using TinyIoC;
 using Xamarin.Forms;
 
 namespace Gym.ViewModels
@@ -28,21 +24,28 @@ namespace Gym.ViewModels
             Task.Run(async () => await Init());
         }
 
-        private ISettingsService _settingsService;
-        private IDataService _dataService;
-        private IExportService _exportService;
-        private IMailingService _mailingService;
+        private readonly ISettingsService _settingsService;
+        private readonly IDataService _dataService;
+        private readonly IExportService _exportService;
+        private readonly IMailingService _mailingService;
 
-        private readonly string _mailTo = "lzo1@o2.pl";
         private readonly string _mailTitle = "Gym App - data backup";
 
         private int dailyLimit;
+        private string email;
 
         public int DailyLimit
         {
             get { return dailyLimit; }
             set { SetProperty(ref dailyLimit, value); }
         }
+
+        public string Email
+        {
+            get { return email; }
+            set { SetProperty(ref email, value); }
+        }
+
 
         public ICommand UpdateSettingsCommand { get; }
         public ICommand SendHistoryCommand { get; }
@@ -68,7 +71,10 @@ namespace Gym.ViewModels
         {
             await Task.Delay(1);
 
-            DailyLimit = _settingsService.Get().DailyLimit;
+            var settings = _settingsService.Get();
+            DailyLimit = settings.DailyLimit;
+            Email = settings.Email;
+
         }
         private async Task SendHistory()
         {
@@ -81,7 +87,7 @@ namespace Gym.ViewModels
                 {
                     var exported = _exportService.Export(_dataService);
 
-                    _mailingService.Send(_mailTo, _mailTo, exported);
+                    _mailingService.Send(Email, _mailTitle, exported);
                 }
                 finally
                 {

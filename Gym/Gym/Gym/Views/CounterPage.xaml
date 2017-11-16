@@ -17,7 +17,8 @@
                    FontSize="32" Margin="1,3"/>
             <Label IsVisible="False" Text="{Binding DailyLimit}" x:Name="l1" FontSize="3" Margin="0"/>
 
-            <Label Text="Last 7 days chart" VerticalOptions="Start" Margin="1,4,1,1"/>
+            <Label Text="Last 7 days chart" VerticalOptions="Start" 
+                   HorizontalOptions="CenterAndExpand"  Margin="1,4,1,1"/>
             <microcharts:ChartView Margin="1" Chart="{Binding Path=Chart}" 
                                    BackgroundColor="White"
                                    VerticalOptions="FillAndExpand" 

@@ -18,6 +18,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\SettingsEntry.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\ChartService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\ColorService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\DataService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Debug\DebugDataService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Debug\DebugSettingsService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\ExportService.cs" />
