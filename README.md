@@ -28,9 +28,16 @@ The settings page contains entry to set daily limit and button to save this valu
 The button below is used to parse all data into CSV-like format and send via email.
 
 # Screenshots
-Main menu
-
 ![App icon](https://github.com/darthmaure/Gym/blob/master/Gym/Images/icon.png "App icon")
+
+![Main page](https://github.com/darthmaure/Gym/blob/master/Gym/Images/MainPage.PNG "Main page")
+
+![Settings page](https://github.com/darthmaure/Gym/blob/master/Gym/Images/SettingsPage.PNG "Settings page")
+
+![Edit daily limit](https://github.com/darthmaure/Gym/blob/master/Gym/Images/SettingsPage_EditLimit.PNG "Edit daily limit")
+
+![Edit email](https://github.com/darthmaure/Gym/blob/master/Gym/Images/SettingsPage_EditMail.PNG "Edit email")
+
 
 
 # Icons
